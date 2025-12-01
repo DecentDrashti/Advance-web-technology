@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form Validation</title>
+</head>
+<body>
+
+<form id="regForm" action="#"  method="post">
+    <!-- Is action="#" required?No.
+If you’re handling everything with JavaScript validation and not sending data to a backend server, you can remove it.
+    Is method="post" required?No.
+If you are NOT submitting data to a backend server (PHP, Node.js, etc.), then you don’t need it. -->
+    <h1 align="center">Registration Form</h1>
+
+    <table>
+        <tr>
+            <td>User Name</td>
+            <td><input type="text" id="uname"></td>
+        </tr>
+
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="upass"></td>
+        </tr>
+
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" id="upassc"></td>
+        </tr>
+
+        <tr>
+            <td>Age</td>
+            <td><input type="text" id="uage"></td>
+        </tr>
+
+        <tr>
+            <td>Enrollment</td>
+            <td><input type="text" id="uenroll"></td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="text" id="uemail"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Register" onclick="validateForm()">
+                 
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<script>
+
+function validateForm() {
+
+    let name = document.getElementById("uname").value;
+    let pass = document.getElementById("upass").value;
+    let cpass = document.getElementById("upassc").value;
+    let age = document.getElementById("uage").value;
+    let enroll = document.getElementById("uenroll").value;
+    let email = document.getElementById("uemail").value;
+
+    let passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$/;
+
+    // NAME
+    if (name === "") {
+        alert("Name cannot be empty.");
+    }
+    else if (name.length < 3) {
+        alert("Username must be at least 3 characters.");
+    }
+
+    // PASSWORD
+    else if (pass === "") {
+        alert("Password cannot be empty.");
+    }
+    else if (pass.length < 6) {
+        alert("Password must be at least 6 characters.");
+    }
+    else if (!passPattern.test(pass)) {
+        alert("Password must contain uppercase, lowercase, number, and special symbol.");
+    }
+
+    // CONFIRM PASSWORD
+    else if (cpass === "") {
+        alert("Confirm password cannot be empty.");
+    }
+    else if (pass !== cpass) {
+        alert("Passwords do not match.");
+    }
+
+    // AGE
+    else if (age === "") {
+        alert("Age cannot be empty.");
+    }
+    else if (isNaN(age) || age < 18) {
+        alert("Age must be a number and 18 or above.");
+    }
+
+    // ENROLLMENT
+    else if (enroll === "") {
+        alert("Enrollment cannot be empty.");
+    }
+    else if (isNaN(enroll) || enroll.length !== 12) {
+        alert("Enrollment must be a 12-digit number.");
+    }
+
+    // EMAIL
+    else if (email === "") {
+        alert("Email cannot be empty.");
+    }
+    else if (!email.match(/^[^ ]+@[^ ]+\.[a-z]{2,3}$/)) {
+        alert("Enter a valid email address.");
+    }
+
+    // SUCCESS
+    else {
+        alert("Form Submitted Successfully!");
+        document.getElementById("regForm").submit();
+    }
+}
+</script>
+
+
+</body>
+</html>
+<!-- or
+<form id="regForm">
+    <input type="text" name="uname" placeholder="Enter name">
+    <input type="password" name="upass" placeholder="Password">
+    <input type="password" name="upassc" placeholder="Confirm Password">
+    <input type="number" name="uage" placeholder="Age">
+    <input type="text" name="uenroll" placeholder="Enrollment">
+    <input type="email" name="uemail" placeholder="xyz@gmail.com">
+    <input type="submit" value="Register">
+</form>
+
+<script>
+document.getElementById("regForm").onsubmit = function (e) {
+    e.preventDefault();
+
+    const data = new FormData(this);
+
+    // Directly use data.get() inside validations
+    if (data.get("uname") === "") {
+        alert("Enter name");
+        return;
+    }
+
+    let pass = data.get("upass");
+
+    if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$/.test(pass)) {
+        alert("Password must contain letters, digits & special symbols, min 6 characters");
+        return;
+    }
+
+    if (pass !== data.get("upassc")) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    if (data.get("uage") < 18 || data.get("uage") > 60) {
+        alert("Age must be between 18 and 60");
+        return;
+    }
+
+    if (!/^[0-9]{12}$/.test(data.get("uenroll"))) {
+        alert("Enrollment must be 12 digits");
+        return;
+    }
+
+    if (!data.get("uemail").includes("@")) {
+        alert("Enter a valid email");
+        return;
+    }
+
+    alert("Registration Successful!");
+};
+</script>
+ -->

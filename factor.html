@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>factor</title>
+</head>
+<body>
+    <script>
+        function factor(num) {
+            if (num <= 1) return false; 
+            console.log("Factors of " + num + " are:");
+            for (let i = 1; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    console.log(i);
+                    if (i !== num / i) {
+                        console.log(num / i);
+                    }
+                }
+            }
+        }
+        var numberToCheck = parseInt(prompt("Enter a number to have the factor:")); 
+        factor(numberToCheck);
+        </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+        <script>
+        function calculator(num1,num2,operator) {
+            switch(operator){
+                case '+': console.log("sum is:",num1+num2);
+                            break;
+                case '-': console.log("sub is:",num1-num2);
+                            break;
+                case '*': console.log("multi is:",num1*num2);
+                            break;
+                case '/': console.log("div is:",num1/num2);
+                            break;
+                default: console.log("wrong operator enter the correct one");
+                            break;
+            }
+           
+        }
+        var num1 = parseInt(prompt("Enter a number 1:")); 
+        var num2 = parseInt(prompt("Enter a number 2:")); 
+        var operator =prompt("Enter a operator:");
+        calculator(num1,num2,operator);
+        </script>
+</body>
+</html>

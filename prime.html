@@ -1,0 +1,27 @@
+<!-- check the prime numbers -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime numbers</title>
+</head>
+<body>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false; 
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if(num==2) return true; 
+                else if (num % i === 0) return false; 
+            }
+            return true; 
+        }
+        var numberToCheck = parseInt(prompt("Enter a number to check if it's prime:")); 
+        if (isPrime(numberToCheck)) {
+            console.log(numberToCheck + " is a prime number.");
+        } else {
+            console.log(numberToCheck + " is not a prime number.");
+        }
+        </script>
+</body>
+</html>

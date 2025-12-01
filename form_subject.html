@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form Validation</title>
+</head>
+<body>
+
+<form id="regForm" action="#"  method="post">
+    <h1 align="center">Registration Form</h1>
+
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="uname"></td>
+        </tr>
+
+        <tr>
+            <td>Roll no</td>
+            <td><input type="number" id="uroll"></td>
+        </tr>
+
+        <tr>
+            <td>subject 1</td>
+            <td><select id="usubject1">
+                <option value="">--Select Subject 1--</option>
+                <option value="awt">AWT</option>
+                <option value="ui/ux">UI/UX</option>
+                <option value="ml">ML</option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>subject 2</td>
+            <td><select id="usubject2">
+                <option value="">--Select Subject 2--</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Register" onclick="validateForm()">
+                 
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<script>
+
+document.getElementById("usubject1").onchange = function() {
+    alert("You selected " + this.value);
+};
+document.getElementById("usubject2").onfocus = updateSubject2;
+function updateSubject2() {
+    let s1 = document.getElementById("usubject1").value;
+    let usubject2 = document.getElementById("usubject2");
+    usubject2.innerHtml = "";
+    usubject2.add(new Option("--Select Subject 2--", ""));
+    if(s1.value=="AWT"){
+        usubject2.add(new Option("Ins"));
+        usubject2.add(new Option("DeveOps"));
+    }
+    else if(s1.value=="ui/ux"){
+        usubject2.add(new Option("Cn"));
+        usubject2.add(new Option("Se"));
+    }
+    else if(s1.value=="ml"){
+        usubject2.add(new Option("Dl"));
+        usubject2.add(new Option("Seo"));
+    }
+};
+
+function validateForm() {
+
+    let name = document.getElementById("uname").value;
+    let roll = document.getElementById("uroll").value;
+    let subject1 = document.getElementById("usubject1").value;
+    let subject2 = document.getElementById("usubject2").value;
+
+    const allowed = {
+        "awt": ["ins", "deveops"],
+        "ui/ux": ["cn", "se"],
+        "ml": ["dl", "seo"]
+    };
+
+   /* function updateSubject2() {
+    const s1 = document.getElementById("usubject1").value;
+    const s2Dropdown = document.getElementById("usubject2");
+
+    // Clear all options
+    s2Dropdown.innerHTML = '<option value="">--Select Subject 2--</option>';
+
+    // Add only allowed options if s1 has value
+    if (s1 && allowed[s1]) {
+        allowed[s1].forEach(option => {
+            let opt = document.createElement("option");
+            opt.value = option;
+            opt.text = option.toUpperCase();
+            s2Dropdown.add(opt);
+        });
+    }*/
+
+    // NAME
+    if (name === "") {
+        alert("Name cannot be empty.");
+    }
+    else if (name.length < 3) {
+        alert("Username must be at least 3 characters.");
+    }
+
+    // ROLL NO
+    else if (roll === "") {
+        alert("Roll no cannot be empty.");
+    }
+    else if (isNaN(roll) || roll <= 0) {
+        alert("Roll no must be a positive number.");
+    }
+    // SUBJECT1 if subject 1 === awt then subject 2 should be only ins or deveops
+    else if(s1 === "") {
+        alert("Please select Subject 1.");
+        return;
+    } 
+    else if (s2 === "") {
+        alert("Please select Subject 2.");
+        return;
+    }
+
+    // Check if Subject2 is valid for selected Subject1
+    else if (!allowed[s1].includes(s2)) {//locha
+        alert(`If Subject 1 is ${s1.toUpperCase()}, Subject 2 must be either ${allowed[s1].join(" or ")}.`);
+        return;
+    }
+
+    else {
+        alert("Form Submitted Successfully!");
+        document.getElementById("regForm").submit();
+    }
+}
+</script>
+
+
+</body>
+</html>

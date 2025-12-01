@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Crud operations</h1>
+   <button class="add" onclick="ask()">add here</button>
+    <script>
+         var students=[
+            {id:1,name:"alice",age:20},
+            {id:2,name:"bob",age:21},
+            {id:3,name:"charlie",age:22}
+        ];
+        function ask(){
+            var choice=prompt("enter your choice 1.create 2.read 3.delete");
+            if(choice==1){
+                promptInput();
+            }
+            else if(choice==2){
+                readStudents();
+            }
+            else if(choice==3){
+                var id=prompt("enter id to delete:");
+                deleteStudent(id);
+            }
+            else{
+                alert("invalid choice");
+            }
+        }
+        function promptInput(){
+            var id=prompt("enter id:");
+            var name=prompt("enter name:");
+            var age=prompt("enter age:");
+            createStudent(id,name,age);
+        }
+        //create
+        function createStudent(id,name,age){
+            students.push({id:id,name:name,age:age});
+            readStudents();
+        }
+        //read
+        function readStudents(){
+            console.log(students);
+        }
+        </script>
+</body>
+</html>

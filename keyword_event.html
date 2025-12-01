@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body id="bdy">
+    <input type="text" placeholder="enter the letter" onkeypress="keyPress()" onkeyup="keyUp()">
+    <script>
+        function keyPress(){
+            //enter key letter
+            if(event.key>='a' && event.key<='z' || event.key>='A' && event.key<='Z'){
+                if(event.key=='A' || event.key=='a' || event.key=='i' || event.key=='o' || event.key=='U' || event.key=='u' || event.key=='E' || event.key=='I' || event.key=='O' || event.key=='O'){
+                    console.log("you have entered a vowel letter:"+event.key);
+                }
+                else{
+                console.log("you have entered a constant :"+event.key);
+                }
+            }
+            else{
+                console.log("this is not a letter");
+            }
+        }
+        function keyUp(){
+            document.getElementById('bdy').style.color="pink";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body >
+    <p id="p"onmousedown="mouseDown()" onmouseup="mouseUp()">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, debitis similique hic labore exercitationem minima! Nemo asperiores voluptates molestiae sunt consectetur repellendus officiis, maxime, vitae ipsa mollitia veniam sit cupiditate!</p> 
+    <script>
+        function mouseUp(){
+            document.getElementById('p').style.color="blueviolet";
+        }
+         function mouseDown(){
+            document.getElementById('p').style.color="pink";
+        }
+    </script>
+</body>
+</html>
