@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change HTML Properties Using Events</title>
+</head>
+<body>
+
+<h2>Click the Button to Change My Properties!</h2>
+
+<button onclick="changeProperties()">Click Me</button>
+
+<script>
+function changeProperties() {
+
+    let h = document.getElementsByTagName("h2")[0];
+    //getElementsByTagName returns a live collection (HTMLCollection) of elements, you still need [0] to pick the first item from that collection — even if there’s only one right now. and if there are multiple h2 tags, it will only change the first one.
+
+    // Change properties
+    h.style.color = "red";
+    h.style.background = "yellow";
+    h.style.fontSize = "30px";
+    h.style.border = "2px solid blue";
+    h.innerHTML = "Properties Changed Successfully!";
+}
+</script>
+
+</body>
+</html>
