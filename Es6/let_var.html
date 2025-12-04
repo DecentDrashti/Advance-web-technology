@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let vs var</title>
+</head>
+<body>
+    <script>
+        
+            let a = 10;
+            console.log("value of a using let:",a);
+            var b = 20;
+            console.log("value of b using var:",b);
+            //let a = 30; this will not allowed
+            //var a=20; this will also not allowed
+            a=20; //re-assigning is allowed
+            console.log("value of a after re-declaring simply:",a);
+            var b=30;
+            // console.log("value of b after re-declaring using let:",b);
+            //let b = 40;  this will also not allowed
+            console.log("value of b after re-declaring using var:",b);
+            b=40; //re-assigning is allowed
+            console.log("value of b after re-declaring simply:",b);
+    </script>
+</body>
+</html>

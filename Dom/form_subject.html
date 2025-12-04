@@ -21,7 +21,7 @@
 
         <tr>
             <td>subject 1</td>
-            <td><select id="usubject1">
+            <td><select id="usubject1" onchange="updateSubject2()">
                 <option value="">--Select Subject 1--</option>
                 <option value="awt">AWT</option>
                 <option value="ui/ux">UI/UX</option>
@@ -33,12 +33,7 @@
             <td>subject 2</td>
             <td><select id="usubject2">
                 <option value="">--Select Subject 2--</option>
-                <option value="ins">Ins</option>
-                <option value="deveops">DeveOps</option>
-                <option value="cn">Cn</option>
-                <option value="se">Se</option>
-                <option value="dl">Dl</option>
-                <option value="seo">Seo</option>
+                
             </select></td>
         </tr>
         <tr>
@@ -53,27 +48,30 @@
 
 <script>
 
-document.getElementById("usubject1").onchange = function() {
-    alert("You selected " + this.value);
-};
-// document.getElementById("usubject2").onfocus = function(){
-//     let s1 = document.getElementById("usubject1");
-//     let usubject2 = document.getElementById("usubject2");
-//     usubject2.innerHtml = "";
-//     //usubject2.add(new Option("--Select Subject 2--", ""));
-//     if(s1.value==="AWT"){
-//         usubject2.add(new Option("Ins"));
-//         usubject2.add(new Option("DeveOps"));
-//     }
-//     else if(s1.value=="ui/ux"){
-//         usubject2.add(new Option("Cn"));
-//         usubject2.add(new Option("Se"));
-//     }
-//     else if(s1.value=="ml"){
-//         usubject2.add(new Option("Dl"));
-//         usubject2.add(new Option("Seo"));
-//     }
+// document.getElementById("usubject1").onchange = function() {
+//     alert("You selected " + this.value);
 // };
+
+function updateSubject2() {
+    let s1 = document.getElementById("usubject1").value;
+    let s2 = document.getElementById("usubject2");
+    
+    //usubject2.add(new Option("--Select Subject 2--", ""));
+            s2.innerHTML = "<option value=''>--Select Subject 2--</option>"; // reset
+
+            if (s1 === "awt") {
+                s2.innerHTML += "<option value='ins'>INS</option>";
+                s2.innerHTML += "<option value='devops'>DevOps</option>";
+            }
+            else if (s1 === "ui/ux") {
+                s2.innerHTML += "<option value='se'>SE</option>";
+                s2.innerHTML += "<option value='cn'>CN</option>";
+            }
+            else if (s1 === "ml") {
+                s2.innerHTML += "<option value='dl'>DL</option>";
+                s2.innerHTML += "<option value='seo'>SEO</option>";
+            }
+}
 
 function validateForm() {
 
@@ -83,27 +81,10 @@ function validateForm() {
     let s2 = document.getElementById("usubject2").value;
 
     const allowed = {
-        "awt": ["ins", "deveops"],
+        "awt": ["ins", "devops"],
         "ui/ux": ["cn", "se"],
         "ml": ["dl", "seo"]
     };
-
-   /* function updateSubject2() {
-    const s1 = document.getElementById("usubject1").value;
-    const s2Dropdown = document.getElementById("usubject2");
-
-    // Clear all options
-    s2Dropdown.innerHTML = '<option value="">--Select Subject 2--</option>';
-
-    // Add only allowed options if s1 has value
-    if (s1 && allowed[s1]) {
-        allowed[s1].forEach(option => {
-            let opt = document.createElement("option");
-            opt.value = option;
-            opt.text = option.toUpperCase();
-            s2Dropdown.add(opt);
-        });
-    }*/
 
     // NAME
     if (name === "") {
@@ -144,7 +125,7 @@ function validateForm() {
         alert("Form Submitted Successfully!");
         document.getElementById("regForm").submit();
     }
-}
+    }
 </script>
 
 
