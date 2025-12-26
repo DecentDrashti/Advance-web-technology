@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse_click(left right and middle)</title>
+</head>
+<body>
+    <h2>Mouse Click Event</h2>
+    <button onclick="identifyEvents()">Click Me</button>
+    <p id="click">Click anywhere to see which mouse button was clicked.</p>
+    <script>
+        function identify(Events){
+            alert("Now click anywhere to identify which mouse button is clicked.");
+        }
+        document.addEventListener('click',function(e){
+            e.preventDefault();
+            if(e.button==0){ //left
+                document.getElementById('click').innerText="Left button clicked";
+            }
+            else if(e.button==2){ //right 
+                document.getElementById('click').innerText="Right button clicked";
+            }
+            else if(e.button==1){ //middle
+                document.getElementById('click').innerText="Middle button clicked";
+            }
+        });
+    </script>
+    button ma identify(Events)
+p id='click'></p>
+function ma e.prevent default()
+if(e.button==0) //left
+debid('click')
+if(e.button==2) //right 
+if(e.button==1) //middle
+</body>
+</html>

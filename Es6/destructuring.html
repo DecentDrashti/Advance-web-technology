@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desctructuring object and array</title>
+</head>
+<body>
+    <script>
+    // Destructuring Objects
+    const person = {
+        name: 'Alice',
+        age: 30,
+        city: 'New York'
+    };
+    const { name, age, city } = person;
+    console.log(name); // Alice
+    console.log(age);  // 30
+    console.log(city);
+
+    //destructuring the array
+    let arr;
+    arr=['name','age','city']
+    const [first, second, third]=arr
+    console.log(first); // name
+    console.log(second); // age
+    console.log(third); // city
+    </script>
+</body>
+</html>
