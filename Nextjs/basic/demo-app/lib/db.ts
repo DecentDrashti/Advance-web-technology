@@ -1,26 +1,8 @@
-import sql from "mssql";
+import mysql from 'mysql2/promise';
 
-/**
- * SQL Server configuration
- */
-const config: sql.config = {
-  server: "DESKTOP-3I9H4UB\\SQLEXPRESS",
-  database: "lab_awt",
-  options: {
-    encrypt: false, // true for Azure
-    trustServerCertificate: true
-  }
-};
-
-/**
- * Connect to SQL Server
- */
-export async function connectDB(): Promise<sql.ConnectionPool> {
-  try {
-    const pool = await sql.connect(config);
-    return pool;
-  } catch (error) {
-    console.error("Database connection failed:", error);
-    throw error;
-  }
-}
+export const db = mysql.createPool({
+  host:'localhost',
+  user:'root',
+  password:'',
+  database:'lab_demo',
+});
