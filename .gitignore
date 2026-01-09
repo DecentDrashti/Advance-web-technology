@@ -1,19 +1,5 @@
-*.pdf
-*.txt
 *.docx
+*.pdf
+*.log
+*.txt
 *dump.html
-
-# Ignore all image files
-*.jpg
-*.png
-*.gif
-# Ignore all video files
-*.mp4
-*.avi
-*.mov
-# Ignore all audio files
-*.mp3
-*.wav
-*.flac
-# Ignore all archive files
-*.zip

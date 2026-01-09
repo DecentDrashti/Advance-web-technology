@@ -1,29 +1,29 @@
-// export default async function introduction() {
-//   const api=await fetch('https://6943a53269b12460f3156c83.mockapi.io/demo/student');
-//   const data=await api.json();
-  
-//   console.log(data);
-//   return (
-//    <>
-//     <h1 className="text-4xl">Lets have get all by id data of mock api</h1>
-//     <table className="table-auto border-collapse border border-slate-400 ">
-//       <thead>
-//         <tr>
-//           <th className="border border-slate-300 ">ID</th>
-//           <th className="border border-slate-300 ">Name</th>
-//         </tr>
-//       </thead>
-//       <tbody className="tbody">
-//         <tr>
-//         </tr>
-//         {data.map((item: { id: number; name: string })=>(
-//           <tr key={item.id}>
-//             <td className="border border-slate-300 ">{item.id}</td>
-//             <td className="border border-slate-300 ">{item.name}</td>
-//         </tr>
-//         ))}
-//       </tbody>
-      {/* <thead>
+export default async function Home() {
+  const api=await fetch('http://localhost:5059/api/AdminApi');
+  // const api=await fetch('https://6943a53269b12460f3156c83.mockapi.io/demo/student');
+  const data=await api.json();  
+  console.log(data);
+  return (
+   <>
+    <h1 className="text-4xl">Lets have get all by .net data of api</h1>
+    <table className="table-auto border-collapse border border-slate-400 ">
+      <thead>
+        <tr>
+          <th className="border border-slate-300 ">ID</th>
+          <th className="border border-slate-300 ">Name</th>
+        </tr>
+      </thead>
+      <tbody className="tbody">
+        <tr>
+        </tr>
+        {data.map((item: { adminId: number; fullName: string })=>(
+          <tr key={item.adminId}>
+            <td className="border border-slate-300 ">{item.adminId}</td>
+            <td className="border border-slate-300 ">{item.fullName}</td>
+        </tr>
+        ))}
+      </tbody>
+       {/* <thead>
         <tr>
           <th className="border border-slate-300 ">ID</th>
           <th className="border border-slate-300 ">Name</th>
@@ -36,54 +36,69 @@
             <td className="border border-slate-300 ">{item.name}</td>
           </tr>
         ))}
-      </tbody> */}
-      
-type User = {
-  id: number;
-  name: string;
-  email: string;
-};
-
-export default async function Home() {
-  const res = await fetch("http://localhost:3000/demo", {
-    cache: "no-store",
-  });
-
-  console.log(res.json());
-  const data: User[] = (await res.json());
-  // console.log(data);
-
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>User List</h1>
-
-      {data.length === 0 ? (
-        <p>No users found</p>
-      ) : (
-        <table border={1} cellPadding={10} cellSpacing={0}>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {data.map((user) => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+      </tbody>  */}
+    </table>   
+  </>
   );
-}
+} 
+//mysql 
+// import { Types } from "mongoose";
 
+// type students = {
+//   ID: number;
+//   Name: string;
+//   Email: string;
+//   Age: number;
+// };
+
+// export default async function Home() {
+//   const res = await fetch("http://localhost:3000/api/student");
+//   const data = await res.json();
+//   const User: students[] = await data.students;
+//   console.log(User);
+//   return (
+//     <div>
+//       <h1>Students List</h1>
+
+//       {User.length === 0 ? (
+//         <p>No students found</p>
+//       ) : (
+//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+//           {User.map((i) => (
+//             <div
+//               key={i.ID}
+//               className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow"
+//             >
+//               <h2 className="text-xl font-semibold text-gray-800 mb-2">{i.Name}</h2>
+//               <p className="text-gray-600"><span className="font-medium">ID:</span> {i.ID}</p>
+//               <p className="text-gray-600"><span className="font-medium">Email:</span> {i.Email}</p>
+//               <p className="text-gray-600"><span className="font-medium">Age:</span> {i.Age}</p>
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+
+
+ 
+// export default async function Home() { 
+//     const data = await prisma.students.findMany();
+//      console.log("Hello Prisma");
+//      console.log(data);
+//   return ( 
+//     <div>  <h1>Hello</h1>
+        {/* <ul> 
+      { 
+        data.map((u:students)=>( 
+            <li key={u.ID}>{u.Name}</li> 
+        )) 
+      } 
+      </ul>  */}
+  //   </div> 
+  // )}
 
 
     // <>
