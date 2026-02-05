@@ -10,9 +10,13 @@ export default async function Home() {
       <thead>
         <tr>
           <th className="border border-slate-300 ">ID</th>
+<<<<<<< HEAD
           <th className="border border-slate-300 ">Project-Name</th>
           <th className="border border-slate-300 ">Guide-Name</th>
           <th className="border border-slate-300 ">Type</th>
+=======
+          <th className="border border-slate-300 ">Name</th>
+>>>>>>> 8877ae8916a54ae6b3fe49a82a0dccf1645e1583
         </tr>
       </thead>
       <tbody className="tbody">
