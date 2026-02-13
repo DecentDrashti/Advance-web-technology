@@ -1,25 +1,19 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Put,
-  Delete,
-  Param,
-  Body,
-} from '@nestjs/common';
+//crud method
+import {Controller,Get,Post,Put,Delete,Param,Body,} from '@nestjs/common';
 
 @Controller('student')
 export class StudentController {
+  //  @Get('hello')
+    //     helloWorld() {
+    //         return 'hello world';
+    //     } for testing purpose only
+
   private students = [
         { id: 1, name: 'John Doe', age: 20 },
         { id: 2, name: 'Jane Smith', age: 22 },
         { id: 3, name: 'Alice Johnson', age: 19 },
     ];
-    //  @Get('hello')
-    //     helloWorld() {
-    //         return 'hello world';
-    //     } for testing purpose only
-
+    
   @Get()
   findAll() {
     return this.students;

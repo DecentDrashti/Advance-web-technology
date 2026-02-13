@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div id="page-content">{children}</div>
+        {children}
         {modal}
       </body>
     </html>

@@ -16,8 +16,8 @@ export default function ProductModal({
       <div className="fixed inset-0 bg-black/40 z-40" />
 
       {/* Modal */}
-      <div className="relative inset-0 z-50 flex items-center justify-center">
-        <div className="bg-white max-w-md w-full p-8 rounded-2xl shadow-2xl relative animate-scaleIn">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="bg-white p-8 rounded-xl shadow-xl">
           <h1 className="text-2xl font-bold mb-4 text-center">
             Product {id} Details
           </h1>
